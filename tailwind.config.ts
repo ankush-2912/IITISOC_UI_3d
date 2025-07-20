@@ -70,7 +70,6 @@ export default {
 				'deep-primary': '#5e60ce',
 				'deep-secondary': '#3f37c9',
 				'deep-border': '#2d2d5a'
-				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
