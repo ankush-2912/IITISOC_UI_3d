@@ -48,7 +48,7 @@ const Index = () => {
           frameBorder='0' 
           width='100%' 
           height='100%'
-          className="pointer-events-none"
+          className="pointer-events-none opacity-30"
         />
       </div>
       

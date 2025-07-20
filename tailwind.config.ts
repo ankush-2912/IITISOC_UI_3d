@@ -66,6 +66,10 @@ export default {
 					primary: 'hsl(var(--neon-primary))',
 					secondary: 'hsl(var(--neon-secondary))',
 					glow: 'hsl(var(--neon-glow))'
+				},
+				'deep-primary': '#5e60ce',
+				'deep-secondary': '#3f37c9',
+				'deep-border': '#2d2d5a'
 				}
 			},
 			borderRadius: {

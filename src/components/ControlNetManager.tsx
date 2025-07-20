@@ -173,9 +173,9 @@ const ControlNetManager = () => {
   }, []);
 
   return (
-    <Card className="bg-slate-800/50 border-slate-700 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300">
+    <Card className="deep-space-card transition-all duration-300">
       <CardHeader>
-        <CardTitle className="text-white flex items-center gap-2">
+        <CardTitle className="text-slate-100 flex items-center gap-2">
           <Settings className="w-5 h-5" />
           ControlNet Manager
           <TooltipProvider>
@@ -193,15 +193,15 @@ const ControlNetManager = () => {
       <CardContent className="space-y-6">
         {/* Load ControlNet Section */}
         <div className="space-y-4">
-          <h3 className="text-white font-medium flex items-center gap-2">
+          <h3 className="text-slate-100 font-medium flex items-center gap-2">
             <Plus className="w-4 h-4" />
             Load ControlNet
           </h3>
           
-          <div className="space-y-3 p-4 bg-slate-900/50 rounded-lg border border-slate-600">
+          <div className="space-y-3 p-4 deep-space-surface-elevated rounded-lg border border-slate-700/30">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div>
-                <Label className="text-slate-300 text-sm flex items-center gap-1">
+                <Label className="text-slate-200 text-sm flex items-center gap-1">
                   ControlNet Path *
                   <TooltipProvider>
                     <Tooltip>
@@ -218,13 +218,13 @@ const ControlNetManager = () => {
                   value={controlnetPath}
                   onChange={(e) => setControlnetPath(e.target.value)}
                   placeholder="lllyasviel/sd-controlnet-canny"
-                  className="bg-slate-800 border-slate-600 text-white"
+                  className="deep-space-input text-slate-100"
                   disabled={isLoading}
                 />
               </div>
               
               <div>
-                <Label className="text-slate-300 text-sm flex items-center gap-1">
+                <Label className="text-slate-200 text-sm flex items-center gap-1">
                   Adapter Name
                   <TooltipProvider>
                     <Tooltip>
@@ -241,7 +241,7 @@ const ControlNetManager = () => {
                   value={adapterName}
                   onChange={(e) => setAdapterName(e.target.value)}
                   placeholder="my_canny_controlnet"
-                  className="bg-slate-800 border-slate-600 text-white"
+                  className="deep-space-input text-slate-100"
                   disabled={isLoading}
                 />
               </div>
@@ -249,7 +249,7 @@ const ControlNetManager = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div>
-                <Label className="text-slate-300 text-sm flex items-center gap-1">
+                <Label className="text-slate-200 text-sm flex items-center gap-1">
                   LoRA Weights Path
                   <TooltipProvider>
                     <Tooltip>
@@ -266,13 +266,13 @@ const ControlNetManager = () => {
                   value={loraWeightsPath}
                   onChange={(e) => setLoraWeightsPath(e.target.value)}
                   placeholder="path/to/lora_weights.safetensors"
-                  className="bg-slate-800 border-slate-600 text-white"
+                  className="deep-space-input text-slate-100"
                   disabled={isLoading}
                 />
               </div>
               
               <div>
-                <Label className="text-slate-300 text-sm flex items-center gap-1">
+                <Label className="text-slate-200 text-sm flex items-center gap-1">
                   Torch Data Type
                   <TooltipProvider>
                     <Tooltip>
@@ -286,7 +286,7 @@ const ControlNetManager = () => {
                   </TooltipProvider>
                 </Label>
                 <Select value={torchDtype} onValueChange={setTorchDtype} disabled={isLoading}>
-                  <SelectTrigger className="bg-slate-800 border-slate-600 text-white">
+                  <SelectTrigger className="deep-space-input text-slate-100">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -301,7 +301,7 @@ const ControlNetManager = () => {
               <Button
                 onClick={loadControlNet}
                 disabled={!controlnetPath.trim() || isLoading}
-                className="w-full bg-blue-600 hover:bg-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50"
+                className="w-full deep-space-primary transition-all duration-300 hover:scale-105"
               >
                 {isLoading ? (
                   <>
@@ -317,7 +317,7 @@ const ControlNetManager = () => {
               </Button>
 
               {showSuccess && (
-                <div className="absolute inset-0 flex items-center justify-center bg-green-500/20 rounded-md animate-in fade-in-0 duration-300">
+                <div className="absolute inset-0 flex items-center justify-center bg-green-500/15 rounded-md animate-in fade-in-0 duration-300">
                   <Check className="w-5 h-5 text-green-400 animate-in scale-in-0 duration-500" />
                 </div>
               )}
@@ -325,15 +325,15 @@ const ControlNetManager = () => {
           </div>
         </div>
 
-        <Separator className="bg-slate-600" />
+        <Separator className="bg-slate-700/40" />
 
         {/* Active ControlNets Section */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-white font-medium flex items-center gap-2">
+            <h3 className="text-slate-100 font-medium flex items-center gap-2">
               <Settings className="w-4 h-4" />
               Active ControlNets
-              <Badge variant="secondary" className="bg-slate-700 text-slate-300">
+              <Badge variant="secondary" className="deep-space-badge">
                 {activeControlNets.length}
               </Badge>
             </h3>
@@ -342,7 +342,7 @@ const ControlNetManager = () => {
               size="sm"
               onClick={fetchActiveControlNets}
               disabled={isLoadingList}
-              className="text-slate-300 hover:text-white hover:bg-slate-700"
+              className="text-slate-200 hover:text-white hover:bg-slate-800/50"
             >
               <RefreshCw className={`w-4 h-4 ${isLoadingList ? 'animate-spin' : ''}`} />
             </Button>
@@ -350,12 +350,12 @@ const ControlNetManager = () => {
 
           <div className="space-y-2">
             {isLoadingList ? (
-              <div className="text-center py-4 text-slate-400">
+              <div className="text-center py-4 text-slate-300">
                 <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-slate-400 mx-auto mb-2"></div>
                 Loading active ControlNets...
               </div>
             ) : activeControlNets.length === 0 ? (
-              <div className="text-center py-6 text-slate-400">
+              <div className="text-center py-6 text-slate-300">
                 <Settings className="w-8 h-8 mx-auto mb-2 opacity-50" />
                 <p>No ControlNets loaded</p>
               </div>
@@ -363,13 +363,13 @@ const ControlNetManager = () => {
               activeControlNets.map((controlnet) => (
                 <div
                   key={controlnet}
-                  className="flex items-center justify-between p-3 bg-slate-900/30 rounded-lg border border-slate-600 hover:border-slate-500 transition-all duration-200"
+                  className="flex items-center justify-between p-3 deep-space-surface rounded-lg border border-slate-700/30 hover:border-slate-600/50 transition-all duration-200"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-white font-medium">{controlnet}</span>
+                    <span className="text-slate-100 font-medium">{controlnet}</span>
                   </div>
-                  <Badge variant="secondary" className="bg-green-500/20 text-green-300">
+                  <Badge variant="secondary" className="bg-green-500/15 text-green-300">
                     Active
                   </Badge>
                 </div>
@@ -381,16 +381,16 @@ const ControlNetManager = () => {
         {/* Unload ControlNet Section */}
         {activeControlNets.length > 0 && (
           <>
-            <Separator className="bg-slate-600" />
+            <Separator className="bg-slate-700/40" />
             <div className="space-y-4">
-              <h3 className="text-white font-medium flex items-center gap-2">
+              <h3 className="text-slate-100 font-medium flex items-center gap-2">
                 <Trash2 className="w-4 h-4" />
                 Unload ControlNet
               </h3>
               
               <div className="flex gap-3">
                 <Select value={selectedForUnload} onValueChange={setSelectedForUnload}>
-                  <SelectTrigger className="bg-slate-800 border-slate-600 text-white flex-1">
+                  <SelectTrigger className="deep-space-input text-slate-100 flex-1">
                     <SelectValue placeholder="Select ControlNet to unload" />
                   </SelectTrigger>
                   <SelectContent>
@@ -418,13 +418,13 @@ const ControlNetManager = () => {
                   </AlertDialogTrigger>
                   <AlertDialogContent className="z-[9999] bg-slate-800 border-slate-700">
                     <AlertDialogHeader>
-                      <AlertDialogTitle className="text-white">Confirm Unload</AlertDialogTitle>
-                      <AlertDialogDescription className="text-slate-300">
+                      <AlertDialogTitle className="text-slate-100">Confirm Unload</AlertDialogTitle>
+                      <AlertDialogDescription className="text-slate-200">
                         Are you sure you want to unload "{selectedForUnload}"? This action cannot be undone.
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                      <AlertDialogCancel className="bg-slate-700 text-white border-slate-600">
+                      <AlertDialogCancel className="deep-space-button text-slate-100">
                         Cancel
                       </AlertDialogCancel>
                       <AlertDialogAction
