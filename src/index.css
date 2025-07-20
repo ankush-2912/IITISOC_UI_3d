@@ -4,92 +4,93 @@
 
 @layer base {
   :root {
-    --background: 0 0% 3%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 95%;
 
-    --card: 0 0% 8%;
+    --card: 240 30% 8%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 5%;
+    --popover: 240 30% 5%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 258 100% 70%;
+    --primary: 245 65% 60%;
     --primary-foreground: 0 0% 0%;
 
-    --secondary: 0 0% 12%;
+    --secondary: 240 30% 12%;
     --secondary-foreground: 0 0% 95%;
 
-    --muted: 0 0% 10%;
+    --muted: 240 30% 10%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 258 100% 70%;
+    --accent: 245 65% 60%;
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 95%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 12%;
-    --ring: 258 100% 70%;
+    --border: 240 30% 18%;
+    --input: 240 30% 8%;
+    --ring: 245 65% 60%;
 
     --radius: 0.5rem;
 
-    /* Neon blue-violet theme colors */
-    --neon-primary: 258 100% 70%;
-    --neon-secondary: 258 80% 60%;
-    --neon-glow: 258 100% 80%;
+    /* Deep Space Tech theme colors */
+    --deep-primary: 245 65% 60%;
+    --deep-secondary: 245 70% 45%;
+    --deep-glow: 245 65% 70%;
+    --deep-border: 240 30% 18%;
     
     /* Gradients */
-    --gradient-neon: linear-gradient(135deg, hsl(258 100% 70%), hsl(258 80% 60%));
-    --gradient-glow: 0 0 20px hsl(258 100% 70% / 0.5), 0 0 40px hsl(258 100% 70% / 0.3);
+    --gradient-deep: linear-gradient(135deg, hsl(245 65% 60%), hsl(245 70% 45%));
+    --gradient-glow: 0 0 15px hsl(245 65% 60% / 0.3), 0 0 30px hsl(245 65% 60% / 0.15);
     
-    --sidebar-background: 0 0% 5%;
+    --sidebar-background: 240 30% 3%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 258 100% 70%;
+    --sidebar-primary: 245 65% 60%;
     --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent: 240 30% 10%;
     --sidebar-accent-foreground: 0 0% 90%;
-    --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 258 100% 70%;
+    --sidebar-border: 240 30% 18%;
+    --sidebar-ring: 245 65% 60%;
   }
 
   .dark {
-    --background: 0 0% 3%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 95%;
 
-    --card: 0 0% 8%;
+    --card: 240 30% 8%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 5%;
+    --popover: 240 30% 5%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 258 100% 70%;
+    --primary: 245 65% 60%;
     --primary-foreground: 0 0% 0%;
 
-    --secondary: 0 0% 12%;
+    --secondary: 240 30% 12%;
     --secondary-foreground: 0 0% 95%;
 
-    --muted: 0 0% 10%;
+    --muted: 240 30% 10%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 258 100% 70%;
+    --accent: 245 65% 60%;
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 95%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 12%;
-    --ring: 258 100% 70%;
+    --border: 240 30% 18%;
+    --input: 240 30% 8%;
+    --ring: 245 65% 60%;
     
-    --sidebar-background: 0 0% 5%;
+    --sidebar-background: 240 30% 3%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 258 100% 70%;
+    --sidebar-primary: 245 65% 60%;
     --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent: 240 30% 10%;
     --sidebar-accent-foreground: 0 0% 90%;
-    --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 258 100% 70%;
+    --sidebar-border: 240 30% 18%;
+    --sidebar-ring: 245 65% 60%;
   }
 }
 
@@ -100,5 +101,49 @@
 
   body {
     @apply bg-background text-foreground;
+    background: radial-gradient(ellipse at center, hsl(240 30% 2%) 0%, hsl(0 0% 0%) 70%);
+  }
+}
+
+/* Deep Space Tech specific styles */
+@layer components {
+  .deep-space-card {
+    @apply bg-gradient-to-br from-slate-900/20 to-slate-800/10 border border-slate-700/50 backdrop-blur-sm;
+    box-shadow: 0 0 20px hsl(245 65% 60% / 0.05), inset 0 1px 0 hsl(245 65% 60% / 0.1);
+  }
+  
+  .deep-space-button {
+    @apply bg-gradient-to-r from-slate-800/50 to-slate-700/30 border border-slate-600/50;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .deep-space-button:hover {
+    @apply border-primary/50;
+    box-shadow: 0 0 15px hsl(245 65% 60% / 0.2), inset 0 1px 0 hsl(245 65% 60% / 0.1);
+    background: linear-gradient(to right, hsl(240 30% 12%), hsl(240 30% 10%));
+  }
+  
+  .deep-space-primary {
+    @apply bg-gradient-to-r from-primary to-primary/80 border border-primary/30;
+    box-shadow: 0 0 20px hsl(245 65% 60% / 0.3), inset 0 1px 0 hsl(245 65% 60% / 0.2);
+  }
+  
+  .deep-space-primary:hover {
+    box-shadow: 0 0 25px hsl(245 65% 60% / 0.4), inset 0 1px 0 hsl(245 65% 60% / 0.3);
+    background: linear-gradient(to right, hsl(245 70% 65%), hsl(245 65% 60%));
+  }
+  
+  .deep-space-glow {
+    box-shadow: 0 0 10px hsl(245 65% 60% / 0.2);
+  }
+  
+  .deep-space-input {
+    @apply bg-slate-900/30 border border-slate-700/50 backdrop-blur-sm;
+    transition: all 0.3s ease;
+  }
+  
+  .deep-space-input:focus {
+    @apply border-primary/50;
+    box-shadow: 0 0 15px hsl(245 65% 60% / 0.2), inset 0 1px 0 hsl(245 65% 60% / 0.1);
   }
 }
