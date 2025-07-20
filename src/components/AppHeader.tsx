@@ -43,7 +43,6 @@ const CollapsibleSection = ({
           onClick={handleToggle}
           variant="ghost"
           className="w-full flex items-center justify-between p-3 h-auto text-white hover:bg-slate-700/30 rounded-lg transition-all duration-300 group mt-[-16px] deep-space-button"
-        <Badge variant="secondary" className="deep-space-badge">
         >
           <div className="flex items-center gap-3">
             <div className="transition-colors duration-300 group-hover:text-purple-300">
@@ -68,7 +67,7 @@ const CollapsibleSection = ({
       >
         <CardContent className="pt-0 pb-4">
           <div className={`transform transition-transform duration-300 ${isOpen ? 'translate-y-0' : '-translate-y-2'}`}>
-        <Badge variant="secondary" className="bg-emerald-500/15 text-emerald-300 border-emerald-500/25">
+            {children}
           </div>
         </CardContent>
       </div>
