@@ -48,12 +48,12 @@ const Index = () => {
           frameBorder='0' 
           width='100%' 
           height='100%'
-          className="pointer-events-none opacity-30"
+          className="pointer-events-none opacity-60 mix-blend-soft-light"
         />
       </div>
       
       <div className="min-h-screen bg-transparent relative z-10">
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto p-4 relative z-20">
           <AppHeader />
 
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">

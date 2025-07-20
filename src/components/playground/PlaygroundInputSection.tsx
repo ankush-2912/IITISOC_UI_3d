@@ -75,7 +75,7 @@ const PlaygroundInputSection = ({
   const [openPanel, setOpenPanel] = useState<'model' | 'auto' | null>(null);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 relative">
       <PromptInput
         prompt={prompt}
         onPromptChange={onPromptChange}
@@ -150,7 +150,7 @@ const PlaygroundInputSection = ({
         totalSections={4}
       />
 
-      <div className="space-y-4 animate-in slide-in-from-left-2 duration-700">
+      <div className="space-y-4 animate-in slide-in-from-left-2 duration-700 relative z-10">
         <EnhancedCollapsibleSection
           sectionKey="controls"
           title="Generation Controls"

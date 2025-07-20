@@ -1,78 +1,38 @@
-import { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Sparkles } from "lucide-react";
 
-interface CollapsibleSectionProps {
-  title: string;
-  icon: React.ReactNode;
-  children: React.ReactNode;
-  defaultOpen?: boolean;
-  className?: string;
-  onToggle?: () => void;
-  isOpen?: boolean;
-}
-
-const CollapsibleSection = ({ 
-  title, 
-  icon, 
-  children, 
-  defaultOpen = false, 
-  className = "",
-  onToggle,
-  isOpen: controlledIsOpen
-}: CollapsibleSectionProps) => {
-  const [internalIsOpen, setInternalIsOpen] = useState(defaultOpen);
-  
-  // Use controlled state if provided, otherwise use internal state
-  const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
-
-  const handleToggle = () => {
-    if (onToggle) {
-      onToggle();
-    } else {
-      setInternalIsOpen(!internalIsOpen);
-    }
-  };
-
+const AppHeader = () => {
   return (
-    <Card className={`deep-space-card hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 ${className}`}>
-      <CardHeader className="pb-2">
-        {/* To manually adjust the vertical position of this button, change the mt-[-8px] value below */}
-        <Button
-          onClick={handleToggle}
-          variant="ghost"
-          className="w-full flex items-center justify-between p-3 h-auto text-white hover:bg-slate-700/30 rounded-lg transition-all duration-300 group mt-[-16px] deep-space-button"
-        >
-          <div className="flex items-center gap-3">
-            <div className="transition-colors duration-300 group-hover:text-purple-300">
-              {icon}
+    <div className="text-center mb-8 relative z-20">
+      <div className="glassmorphism-container rounded-2xl p-8 mx-auto max-w-4xl">
+        <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="relative">
+            <Sparkles className="w-8 h-8 text-primary animate-pulse" />
+            <div className="absolute inset-0 w-8 h-8 text-primary animate-ping opacity-20">
+              <Sparkles className="w-8 h-8" />
             </div>
-            <span className="font-semibold text-left">{title}</span>
           </div>
-          <div className="transition-transform duration-300 group-hover:text-purple-300">
-            {isOpen ? (
-              <ChevronUp className="w-5 h-5 text-slate-400 group-hover:text-purple-300 transition-colors duration-300" />
-            ) : (
-              <ChevronDown className="w-5 h-5 text-slate-400 group-hover:text-purple-300 transition-colors duration-300" />
-            )}
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-primary to-white bg-clip-text text-transparent">
+            Magic Control Canvas
+          </h1>
+          <div className="relative">
+            <Sparkles className="w-8 h-8 text-primary animate-pulse" style={{ animationDelay: '0.5s' }} />
+            <div className="absolute inset-0 w-8 h-8 text-primary animate-ping opacity-20" style={{ animationDelay: '0.5s' }}>
+              <Sparkles className="w-8 h-8" />
+            </div>
           </div>
-        </Button>
-      </CardHeader>
-      
-      <div 
-        className={`overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <CardContent className="pt-0 pb-4">
-          <div className={`transform transition-transform duration-300 ${isOpen ? 'translate-y-0' : '-translate-y-2'}`}>
-            {children}
+        </div>
+        <p className="text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed">
+          Advanced AI image generation with LoRA integration, ControlNet support, and real-time pipeline management
+        </p>
+        <div className="mt-4 flex justify-center">
+          <div className="px-4 py-2 deep-space-badge rounded-full text-sm">
+            Deep Space Tech Interface
           </div>
-        </CardContent>
+        </div>
       </div>
-    </Card>
+    </div>
   );
 };
 
-export default CollapsibleSection;
+export default AppHeader;

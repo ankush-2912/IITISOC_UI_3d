@@ -60,42 +60,46 @@ const PlaygroundContent = ({
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-30">
       {/* Input Section */}
-      <PlaygroundInputSection
-        prompt={prompt}
-        onPromptChange={onPromptChange}
-        controlImage={controlImage}
-        onControlImageChange={onControlImageChange}
-        width={width}
-        height={height}
-        numInferenceSteps={numInferenceSteps}
-        guidanceScale={guidanceScale}
-        loraScales={loraScales}
-        onWidthChange={onWidthChange}
-        onHeightChange={onHeightChange}
-        onStepsChange={onStepsChange}
-        onGuidanceScaleChange={onGuidanceScaleChange}
-        onLoraScalesChange={onLoraScalesChange}
-        onError={onError}
-        setGeneratedImage={setGeneratedImage}
-        setAutoGenMetadata={setAutoGenMetadata}
-        selectedModel={selectedModel}
-        setSelectedModel={setSelectedModel}
-      />
+      <div className="glassmorphism-container rounded-xl p-6">
+        <PlaygroundInputSection
+          prompt={prompt}
+          onPromptChange={onPromptChange}
+          controlImage={controlImage}
+          onControlImageChange={onControlImageChange}
+          width={width}
+          height={height}
+          numInferenceSteps={numInferenceSteps}
+          guidanceScale={guidanceScale}
+          loraScales={loraScales}
+          onWidthChange={onWidthChange}
+          onHeightChange={onHeightChange}
+          onStepsChange={onStepsChange}
+          onGuidanceScaleChange={onGuidanceScaleChange}
+          onLoraScalesChange={onLoraScalesChange}
+          onError={onError}
+          setGeneratedImage={setGeneratedImage}
+          setAutoGenMetadata={setAutoGenMetadata}
+          selectedModel={selectedModel}
+          setSelectedModel={setSelectedModel}
+        />
+      </div>
 
       {/* Result Section */}
-      <PlaygroundResultSection
-        isGenerating={isGenerating}
-        generatedImage={generatedImageState}
-        onImageLoad={onImageLoad}
-        onImageError={onImageError}
-        showSuccess={showSuccess}
-        onGenerate={handleGenerate}
-        prompt={prompt}
-        autoGenMetadata={autoGenMetadata}
-        selectedModel={selectedModel}
-      />
+      <div className="glassmorphism-container rounded-xl p-6">
+        <PlaygroundResultSection
+          isGenerating={isGenerating}
+          generatedImage={generatedImageState}
+          onImageLoad={onImageLoad}
+          onImageError={onImageError}
+          showSuccess={showSuccess}
+          onGenerate={handleGenerate}
+          prompt={prompt}
+          autoGenMetadata={autoGenMetadata}
+          selectedModel={selectedModel}
+        />
+      </div>
     </div>
   );
 };

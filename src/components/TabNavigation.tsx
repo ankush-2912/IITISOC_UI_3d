@@ -8,7 +8,7 @@ interface TabNavigationProps {
 
 const TabNavigation = ({ activeTab }: TabNavigationProps) => {
   return (
-    <TabsList className="grid w-full grid-cols-3 bg-slate-950/60 border border-slate-700/30">
+    <TabsList className="grid w-full grid-cols-3 glassmorphism-container">
       <TabsTrigger 
         value="playground" 
         className="deep-space-tab data-[state=active]:text-primary text-slate-400"

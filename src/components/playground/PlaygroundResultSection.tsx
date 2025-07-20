@@ -25,7 +25,7 @@ const PlaygroundResultSection = ({
   selectedModel
 }: PlaygroundResultSectionProps) => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 relative z-10">
       <ImageDisplay
         isGenerating={isGenerating}
         generatedImage={generatedImage}
@@ -40,7 +40,7 @@ const PlaygroundResultSection = ({
         onGenerate={() => onGenerate(selectedModel)}
       />
       {autoGenMetadata && (
-        <details className="mt-4 p-4 bg-gray-700 rounded-lg">
+        <details className="mt-4 p-4 deep-space-surface-elevated rounded-lg">
           <summary className="text-slate-300 text-sm font-medium mb-2">🧠 Prompt Metadata</summary>
           <ul className="text-slate-400 text-sm space-y-1 mt-2 break-words whitespace-pre-wrap">
             {Object.entries(autoGenMetadata).map(([key, value]) => (
@@ -48,10 +48,10 @@ const PlaygroundResultSection = ({
                 <strong className="text-slate-300">{key}:</strong>{" "}
                 {Array.isArray(value)
                   ? value.every(v => typeof v === "object")
-                    ? <pre className="inline-block overflow-x-auto max-w-full bg-gray-800 p-2 rounded whitespace-pre-wrap break-words">{JSON.stringify(value, null, 2)}</pre>
+                    ? <pre className="inline-block overflow-x-auto max-w-full deep-space-surface p-2 rounded whitespace-pre-wrap break-words">{JSON.stringify(value, null, 2)}</pre>
                     : value.join(", ")
                   : typeof value === "object" && value !== null
-                    ? <pre className="inline-block overflow-x-auto max-w-full bg-gray-800 p-2 rounded whitespace-pre-wrap break-words">{JSON.stringify(value, null, 2)}</pre>
+                    ? <pre className="inline-block overflow-x-auto max-w-full deep-space-surface p-2 rounded whitespace-pre-wrap break-words">{JSON.stringify(value, null, 2)}</pre>
                     : String(value)
                 }
               </li>

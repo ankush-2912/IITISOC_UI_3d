@@ -112,14 +112,14 @@ const TabContent = ({
             />
           </TabsContent>
 
-          <TabsContent value="inoutpainting" className="space-y-4">
+          <TabsContent value="inoutpainting" className="space-y-4 glassmorphism-container rounded-xl p-6">
             <InOutpaintingTab
               generatedImage={generatedImage}
               onError={onError}
             />
           </TabsContent>
 
-          <TabsContent value="img2img" className="space-y-4">
+          <TabsContent value="img2img" className="space-y-4 glassmorphism-container rounded-xl p-6">
             <Img2ImgTab
               onError={onError}
             />
@@ -127,7 +127,7 @@ const TabContent = ({
         </Tabs>
       </TabsContent>
 
-      <TabsContent value="documentation" className="space-y-4">
+      <TabsContent value="documentation" className="space-y-4 glassmorphism-container rounded-xl p-6">
         <DocumentationPanel />
       </TabsContent>
 
