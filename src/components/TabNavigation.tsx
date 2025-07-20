@@ -8,24 +8,24 @@ interface TabNavigationProps {
 
 const TabNavigation = ({ activeTab }: TabNavigationProps) => {
   return (
-    <TabsList className="grid w-full grid-cols-3 bg-slate-800/50 border-slate-700">
+    <TabsList className="grid w-full grid-cols-3 bg-slate-950/60 border border-slate-700/30">
       <TabsTrigger 
         value="playground" 
-        className="data-[state=active]:bg-purple-600/20 data-[state=active]:text-purple-300 text-slate-400"
+        className="deep-space-tab data-[state=active]:text-primary text-slate-400"
       >
         <Play className="w-4 h-4 mr-2" />
         Playground
       </TabsTrigger>
       <TabsTrigger 
         value="documentation" 
-        className="data-[state=active]:bg-purple-600/20 data-[state=active]:text-purple-300 text-slate-400"
+        className="deep-space-tab data-[state=active]:text-primary text-slate-400"
       >
         <FileText className="w-4 h-4 mr-2" />
         Documentation
       </TabsTrigger>
       <TabsTrigger 
         value="dashboard" 
-        className="data-[state=active]:bg-purple-600/20 data-[state=active]:text-purple-300 text-slate-400"
+        className="deep-space-tab data-[state=active]:text-primary text-slate-400"
       >
         <Monitor className="w-4 h-4 mr-2" />
         System Dashboard

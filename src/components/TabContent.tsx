@@ -62,24 +62,24 @@ const TabContent = ({
     <>
       <TabsContent value="playground" className="space-y-4">
         <Tabs value={activeSubTab} onValueChange={setActiveSubTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-3 bg-slate-800/50 border-slate-700 mb-6">
+          <TabsList className="grid w-full grid-cols-3 bg-slate-950/60 border border-slate-700/30 mb-6">
             <TabsTrigger 
               value="txtTOimg" 
-              className="data-[state=active]:bg-purple-600/20 data-[state=active]:text-purple-300 text-slate-400"
+              className="deep-space-tab data-[state=active]:text-primary text-slate-400"
             >
               <Play className="w-4 h-4 mr-2" />
               txtTOimg
             </TabsTrigger>
             <TabsTrigger 
               value="inoutpainting" 
-              className="data-[state=active]:bg-purple-600/20 data-[state=active]:text-purple-300 text-slate-400"
+              className="deep-space-tab data-[state=active]:text-primary text-slate-400"
             >
               <Palette className="w-4 h-4 mr-2" />
               In/Outpainting
             </TabsTrigger>
             <TabsTrigger 
               value="img2img" 
-              className="data-[state=active]:bg-purple-600/20 data-[state=active]:text-purple-300 text-slate-400"
+              className="deep-space-tab data-[state=active]:text-primary text-slate-400"
             >
               <Image className="w-4 h-4 mr-2" />
               img2img

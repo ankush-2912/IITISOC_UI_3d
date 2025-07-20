@@ -21,9 +21,9 @@ const LoraSection = ({ onError }: { onError?: (message: string) => void }) => {
   };
 
   return (
-    <Card className="bg-slate-800/50 border-slate-700 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300">
+    <Card className="deep-space-card transition-all duration-300">
       <CardHeader>
-        <CardTitle className="text-white flex items-center gap-2">
+        <CardTitle className="text-slate-100 flex items-center gap-2">
           <Layers className="w-5 h-5" />
           LoRAs
           <TooltipProvider>

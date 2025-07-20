@@ -27,16 +27,16 @@ const PromptInput = ({ prompt, onPromptChange, controlImage, onControlImageChang
   };
 
   return (
-    <Card className="bg-slate-800/50 border-slate-700 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300">
+    <Card className="deep-space-card transition-all duration-300">
       <CardHeader>
-        <CardTitle className="text-white flex items-center gap-2">
+        <CardTitle className="text-slate-100 flex items-center gap-2">
           <Settings className="w-5 h-5" />
           Input
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <div>
-          <label className="text-sm font-medium text-slate-300 mb-2 block flex items-center gap-2">
+          <label className="text-sm font-medium text-slate-200 mb-2 block flex items-center gap-2">
             Prompt
             <Info className="w-4 h-4 text-slate-500" />
           </label>
@@ -47,21 +47,21 @@ const PromptInput = ({ prompt, onPromptChange, controlImage, onControlImageChang
               onFocus={() => setIsPromptFocused(true)}
               onBlur={() => setIsPromptFocused(false)}
               placeholder="Describe what you want to generate..."
-              className={`min-h-[120px] bg-slate-900/50 border-slate-600 text-white placeholder:text-slate-400 resize-none transition-all duration-300 ${
+              className={`min-h-[120px] deep-space-input text-slate-100 placeholder:text-slate-400 resize-none transition-all duration-300 ${
                 isPromptFocused 
-                  ? 'border-purple-500 shadow-lg shadow-purple-500/25 scale-[1.02]' 
-                  : 'hover:border-slate-500'
+                  ? 'border-primary shadow-lg shadow-primary/25 scale-[1.02]' 
+                  : 'hover:border-slate-600'
               }`}
             />
             {isPromptFocused && (
-              <div className="absolute inset-0 rounded-md border-2 border-purple-500 animate-pulse pointer-events-none" />
+              <div className="absolute inset-0 rounded-md border-2 border-primary animate-pulse pointer-events-none" />
             )}
           </div>
         </div>
 
         {/* ControlNet Image Upload */}
         <div>
-          <label className="text-sm font-medium text-slate-300 mb-2 block flex items-center gap-2">
+          <label className="text-sm font-medium text-slate-200 mb-2 block flex items-center gap-2">
             ControlNet Image (Optional)
             <Info className="w-4 h-4 text-slate-500" />
           </label>
@@ -70,7 +70,7 @@ const PromptInput = ({ prompt, onPromptChange, controlImage, onControlImageChang
               <img 
                 src={URL.createObjectURL(controlImage)} 
                 alt="Control image" 
-                className="w-full h-32 object-cover rounded-lg border border-slate-600"
+                className="w-full h-32 object-cover rounded-lg border border-slate-700/40"
               />
               <Button
                 size="sm"
@@ -83,7 +83,7 @@ const PromptInput = ({ prompt, onPromptChange, controlImage, onControlImageChang
               <p className="text-xs text-slate-400 mt-1">{controlImage.name}</p>
             </div>
           ) : (
-            <div className="border-2 border-dashed border-slate-600 rounded-lg p-4 text-center hover:border-slate-500 transition-colors">
+            <div className="border-2 border-dashed border-slate-700/40 rounded-lg p-4 text-center hover:border-primary/30 transition-colors">
               <input
                 type="file"
                 accept="image/*"

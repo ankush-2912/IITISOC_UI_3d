@@ -62,15 +62,15 @@ const AutomaticGeneration = ({ prompt, onError, setGeneratedImage, setAutoGenMet
   };
 
   return (
-    <Card className="bg-slate-800/50 border-slate-700">
+    <Card className="deep-space-card">
       <CardHeader className="pb-3 mt-[-21px] h-[70px]">
         <Button
           onClick={() => setIsExpanded(!isExpanded)}
           variant="ghost"
-          className="w-full flex items-center justify-between p-3 h-auto text-white hover:bg-slate-700/50 rounded-lg transition-all duration-300"
+          className="w-full flex items-center justify-between p-3 h-auto text-slate-100 hover:bg-slate-800/30 rounded-lg transition-all duration-300"
         >
           <div className="flex items-center gap-2">
-            <Zap className="w-4 h-4 text-purple-400" />
+            <Zap className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium">⚙️ Automatic Generation</span>
           </div>
           {isExpanded ? (
@@ -86,29 +86,29 @@ const AutomaticGeneration = ({ prompt, onError, setGeneratedImage, setAutoGenMet
           isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <CardContent className="bg-gray-800 mx-4 mb-4 p-4 rounded-lg space-y-4">"
+        <CardContent className="deep-space-surface-elevated mx-4 mb-4 p-4 rounded-lg space-y-4 border border-slate-700/30">
           {/* Number of Steps */}
           <div className="space-y-2">
-            <Label className="text-slate-300 text-sm">Number of Steps</Label>
+            <Label className="text-slate-200 text-sm">Number of Steps</Label>
             <Input
               type="number"
               value={autoGenSteps}
               onChange={(e) => setAutoGenSteps(Number(e.target.value))}
               min={1}
               max={20}
-              className="bg-slate-900/50 border-slate-600 text-white"
+              className="deep-space-input text-slate-100"
             />
           </div>
 
           {/* Seed */}
           <div className="space-y-2">
-            <Label className="text-slate-300 text-sm">Seed</Label>
+            <Label className="text-slate-200 text-sm">Seed</Label>
             <Input
               type="text"
               value={autoGenSeed}
               onChange={(e) => setAutoGenSeed(e.target.value)}
               placeholder="Leave blank for random"
-              className="bg-slate-900/50 border-slate-600 text-white placeholder-slate-400"
+              className="deep-space-input text-slate-100 placeholder-slate-400"
             />
           </div>
 
@@ -119,7 +119,7 @@ const AutomaticGeneration = ({ prompt, onError, setGeneratedImage, setAutoGenMet
               checked={includeMetadata}
               onCheckedChange={(checked) => setIncludeMetadata(checked as boolean)}
             />
-            <Label htmlFor="include-metadata" className="text-slate-300 text-sm">
+            <Label htmlFor="include-metadata" className="text-slate-200 text-sm">
               Include metadata
             </Label>
           </div>
@@ -128,7 +128,7 @@ const AutomaticGeneration = ({ prompt, onError, setGeneratedImage, setAutoGenMet
           <Button
             onClick={handleAutoGenerate}
             disabled={isAutoGenerating}
-            className="w-full bg-transparent border-2 border-purple-500 text-purple-400 hover:bg-purple-500/10 transition-colors duration-300"
+            className="w-full bg-transparent border-2 border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
           >
             <Zap className="w-4 h-4 mr-2" />
             {isAutoGenerating ? 'Generating...' : 'Generate Automatically'}
@@ -136,7 +136,7 @@ const AutomaticGeneration = ({ prompt, onError, setGeneratedImage, setAutoGenMet
 
           {/* Error Display */}
           {autoGenError && (
-            <div className="text-red-400 text-sm bg-red-900/20 p-2 rounded border border-red-800">
+            <div className="text-red-300 text-sm bg-red-900/15 p-2 rounded border border-red-800/40">
               {autoGenError}
             </div>
           )}

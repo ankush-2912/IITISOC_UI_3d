@@ -23,9 +23,9 @@ const PipelineStatusPanel = ({ onError }: PipelineStatusPanelProps) => {
   } = usePipelineStatus(onError);
 
   return (
-    <Card className="bg-slate-800/50 border-slate-700 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300">
+    <Card className="deep-space-card transition-all duration-300">
       <CardHeader className="pb-3">
-        <CardTitle className="text-white flex items-center justify-between">
+        <CardTitle className="text-slate-100 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Activity className="w-5 h-5" />
             Pipeline Status
@@ -39,7 +39,7 @@ const PipelineStatusPanel = ({ onError }: PipelineStatusPanelProps) => {
                     size="sm"
                     onClick={() => fetchPipelineState(true)}
                     disabled={isLoading}
-                    className="text-slate-300 hover:text-white hover:bg-slate-700 h-8 w-8 p-0 transition-all duration-200 ease-in-out"
+                    className="text-slate-200 hover:text-white hover:bg-slate-800/50 h-8 w-8 p-0 transition-all duration-200 ease-in-out"
                   >
                     <RefreshCw className={`w-4 h-4 transition-transform duration-200 ${isLoading ? 'animate-spin' : ''}`} />
                   </Button>
@@ -53,7 +53,7 @@ const PipelineStatusPanel = ({ onError }: PipelineStatusPanelProps) => {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Badge variant="outline" className="text-xs text-slate-400 border-slate-600">
+                    <Badge variant="outline" className="text-xs text-slate-300 border-slate-700/40">
                       Auto-refresh
                     </Badge>
                   </TooltipTrigger>

@@ -24,25 +24,25 @@ const LoraForm = ({ onAddLora, isLoading, showSuccess }: LoraFormProps) => {
   };
 
   return (
-    <div className="space-y-3 p-4 bg-slate-900/50 rounded-lg border border-slate-600 hover:border-slate-500 transition-all duration-300 hover:shadow-md">
+    <div className="space-y-3 p-4 deep-space-surface-elevated rounded-lg border border-slate-700/30 hover:border-slate-600/50 transition-all duration-300 hover:shadow-md">
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <Label className="text-slate-300 text-sm">Name (Adapter Name) *</Label>
+          <Label className="text-slate-200 text-sm">Name (Adapter Name) *</Label>
           <Input
             value={newLoraName}
             onChange={(e) => setNewLoraName(e.target.value)}
             placeholder="LoRA adapter name"
-            className="bg-slate-800 border-slate-600 text-white transition-all duration-300 hover:border-slate-500 focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/25"
+            className="deep-space-input text-slate-100 transition-all duration-300"
             disabled={isLoading}
           />
         </div>
         <div>
-          <Label className="text-slate-300 text-sm">Path/ID *</Label>
+          <Label className="text-slate-200 text-sm">Path/ID *</Label>
           <Input
             value={newLoraPath}
             onChange={(e) => setNewLoraPath(e.target.value)}
             placeholder="model/path or ID"
-            className="bg-slate-800 border-slate-600 text-white transition-all duration-300 hover:border-slate-500 focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/25"
+            className="deep-space-input text-slate-100 transition-all duration-300"
             disabled={isLoading}
           />
         </div>
@@ -50,7 +50,7 @@ const LoraForm = ({ onAddLora, isLoading, showSuccess }: LoraFormProps) => {
       <div className="relative">
         <Button 
           onClick={handleSubmit}
-          className="w-full bg-purple-600 hover:bg-purple-700 transition-all duration-200 ease-in-out transform hover:scale-[1.02] active:scale-[0.98]"
+          className="w-full deep-space-primary transition-all duration-200 ease-in-out transform hover:scale-[1.02] active:scale-[0.98]"
           disabled={!newLoraPath || !newLoraName || isLoading}
         >
           {isLoading ? (

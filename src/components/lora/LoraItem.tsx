@@ -16,16 +16,16 @@ interface LoraItemProps {
 const LoraItem = ({ lora, index, onRemove, onUpdateScale }: LoraItemProps) => {
   return (
     <div 
-      className="p-3 bg-slate-900/30 rounded-lg border border-slate-600 hover:border-slate-500 transition-all duration-300 hover:shadow-md animate-in slide-in-from-left-2 duration-500" 
+      className="p-3 deep-space-surface rounded-lg border border-slate-700/30 hover:border-slate-600/50 transition-all duration-300 hover:shadow-md animate-in slide-in-from-left-2 duration-500" 
       style={{ animationDelay: `${index * 100}ms` }}
     >
       <div className="flex items-center justify-between mb-2">
         <div>
-          <h4 className="text-white font-medium">{lora.name}</h4>
+          <h4 className="text-slate-100 font-medium">{lora.name}</h4>
           <p className="text-sm text-slate-400">{lora.path}</p>
         </div>
         <div className="flex items-center gap-2">
-          <Badge variant="secondary" className="bg-slate-700 text-slate-300 transition-all duration-200 hover:bg-slate-600">
+          <Badge variant="secondary" className="deep-space-badge transition-all duration-200">
             {lora.scale.toFixed(1)}
           </Badge>
           <Button
@@ -39,14 +39,14 @@ const LoraItem = ({ lora, index, onRemove, onUpdateScale }: LoraItemProps) => {
         </div>
       </div>
       <div className="space-y-2">
-        <Label className="text-slate-300 text-sm">Scale: {lora.scale}</Label>
+        <Label className="text-slate-200 text-sm">Scale: {lora.scale}</Label>
         <Slider
           value={[lora.scale]}
           onValueChange={(value) => onUpdateScale(lora.id, value[0])}
           max={2}
           min={-2}
           step={0.1}
-          className="w-full"
+          className="w-full deep-space-slider"
         />
       </div>
     </div>

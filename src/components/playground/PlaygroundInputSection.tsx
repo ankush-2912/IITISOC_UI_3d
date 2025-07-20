@@ -88,23 +88,23 @@ const PlaygroundInputSection = ({
         {/* Dropdown Button */}
         <Button
           variant={openPanel === 'model' ? 'secondary' : 'outline'}
-          className="w-1/2 flex items-center justify-between bg-slate-800/50 border border-slate-700 hover:bg-slate-700/50 text-white"
+          className="w-1/2 flex items-center justify-between deep-space-button text-slate-100"
           onClick={() => setOpenPanel(openPanel === 'model' ? null : 'model')}
         >
           <span className="flex items-center gap-2">
-            <ChevronDown className="w-4 h-4 text-purple-400" />
+            <ChevronDown className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium">Select Model</span>
           </span>
-          <span className="ml-2 text-xs text-purple-300">{selectedModel}</span>
+          <span className="ml-2 text-xs text-primary">{selectedModel}</span>
         </Button>
         {/* Automatic Generation Button */}
         <Button
           variant={openPanel === 'auto' ? 'secondary' : 'outline'}
-          className="w-1/2 flex items-center justify-between bg-slate-800/50 border border-slate-700 hover:bg-slate-700/50 text-white"
+          className="w-1/2 flex items-center justify-between deep-space-button text-slate-100"
           onClick={() => setOpenPanel(openPanel === 'auto' ? null : 'auto')}
         >
           <span className="flex items-center gap-2">
-            <Zap className="w-4 h-4 text-purple-400" />
+            <Zap className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium">Automatic Generation</span>
           </span>
         </Button>
@@ -112,16 +112,16 @@ const PlaygroundInputSection = ({
       {/* Panels (only one open at a time) */}
       <div className="w-full">
         {openPanel === 'model' && (
-          <div className="w-full bg-slate-800/50 border border-slate-700 rounded-lg p-4 mt-2">
+          <div className="w-full deep-space-surface-elevated border border-slate-700/30 rounded-lg p-4 mt-2">
             <Select value={selectedModel} onValueChange={setSelectedModel}>
-            <SelectTrigger className="w-full bg-transparent border border-slate-700 text-white hover:bg-slate-700/30 rounded-lg px-4 py-2 text-sm">
+            <SelectTrigger className="w-full deep-space-input text-slate-100 rounded-lg px-4 py-2 text-sm">
                 <SelectValue placeholder="Select a model" />
               </SelectTrigger>
-              <SelectContent className="bg-slate-800 border border-slate-700 text-white rounded-lg shadow-lg">
+              <SelectContent className="deep-space-surface-elevated border border-slate-700/40 text-slate-100 rounded-lg shadow-lg">
                 {modelOptions.map((model) => (
                   <SelectItem
   value={model}
-  className="bg-slate-800 text-white hover:bg-slate-700/40 px-4 py-2 text-sm"
+  className="deep-space-surface text-slate-100 hover:bg-slate-700/40 px-4 py-2 text-sm"
 >
   {model}
 </SelectItem>

@@ -36,25 +36,25 @@ const CollapsibleSection = ({
   };
 
   return (
-    <Card className={`bg-slate-800/50 border-slate-700 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300  ${className}`}>
+    <Card className={`deep-space-card transition-all duration-300 ${className}`}>
       <CardHeader className="pb-2">
         {/* To manually adjust the vertical position of this button, change the mt-[-8px] value below */}
         <Button
           onClick={handleToggle}
           variant="ghost"
-          className="w-full flex items-center justify-between p-3 h-auto text-white hover:bg-slate-700/50 rounded-lg transition-all duration-300 group mt-[-16px]"
+          className="w-full flex items-center justify-between p-3 h-auto text-slate-100 hover:bg-slate-800/30 rounded-lg transition-all duration-300 group mt-[-16px]"
         >
           <div className="flex items-center gap-3">
-            <div className="transition-colors duration-300 group-hover:text-purple-300">
+            <div className="transition-colors duration-300 group-hover:text-primary">
               {icon}
             </div>
             <span className="font-semibold text-left">{title}</span>
           </div>
-          <div className="transition-transform duration-300 group-hover:text-purple-300">
+          <div className="transition-transform duration-300 group-hover:text-primary">
             {isOpen ? (
-              <ChevronUp className="w-5 h-5 text-slate-400 group-hover:text-purple-300 transition-colors duration-300" />
+              <ChevronUp className="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors duration-300" />
             ) : (
-              <ChevronDown className="w-5 h-5 text-slate-400 group-hover:text-purple-300 transition-colors duration-300" />
+              <ChevronDown className="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors duration-300" />
             )}
           </div>
         </Button>

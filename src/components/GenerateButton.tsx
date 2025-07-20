@@ -27,21 +27,21 @@ const GenerateButton = ({ isGenerating, canGenerate, showSuccess, onGenerate }: 
         onClick={onGenerate}
         onMouseMove={handleMouseMove}
         disabled={isGenerating || !canGenerate}
-        className={`w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 
-          transition-all duration-300 hover:scale-105 hover:shadow-[var(--gradient-glow)]
+        className={`w-full deep-space-primary text-primary-foreground font-medium py-3 
+          transition-all duration-300 hover:scale-105
           active:scale-95 disabled:hover:scale-100 disabled:hover:shadow-none
-          relative overflow-hidden border border-primary/20
+          relative overflow-hidden
           ${isGenerating ? 'animate-pulse' : ''}
         `}
         style={{
           background: isGenerating || !canGenerate ? undefined : `
             radial-gradient(circle 100px at ${mousePosition.x}px ${mousePosition.y}px, 
-              hsl(258 100% 80% / 0.3), 
+              hsl(245 65% 70% / 0.3), 
               transparent 70%
             ),
-            hsl(var(--primary))
+            linear-gradient(135deg, hsl(245 65% 60%) 0%, hsl(245 70% 45%) 100%)
           `,
-          boxShadow: !isGenerating && canGenerate ? 'var(--gradient-glow)' : undefined
+          boxShadow: !isGenerating && canGenerate ? 'var(--gradient-glow-hover)' : undefined
         }}
       >
         {isGenerating ? (
